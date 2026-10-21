@@ -1,0 +1,70 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fafafa;
+}
+
+header{
+    text-align: center;
+    margin-bottom: 2px;
+    padding: 10px;
+    background-color: #2a67d9;
+    color: white;
+    font-size: 16px;
+}
+
+main{
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+main h1, main p{
+    text-align: center;
+}
+
+section{
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+}
+
+h2{
+    margin: 0 auto;
+}
+
+.inscricao button{
+    display: block;
+    margin: 10px auto;
+    padding: 10px 10px;
+    background-color: #2a67d9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.inscricao button:hover{
+    background-color: #1e4bb8;
+}
+.inscricao button:active{
+    background-color: #1e4bb8;
+    transform: scale(0.95);
+}
+
+input[type="text"]{
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.participantes{
+}
