@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seminfo 2.0</title>
+    <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
-    <main>
+    <header>
         <h1>Seminfo 2.0</h1>
         <p>Semana de informatica 2026</p>
-        <section>
+    </header>
+    <main>
+        <section class="inscricao">
         <form id="form-inscricao">
-            <label for="nome">Nome do participante</label>
+            <h2>Inscrição de Participantes</h2>
+            <br>
+            <label for="nome">Nome do participante: </label>
             <input type="text" id="nome" name="nome">
-        
+            <br>
             <button type="submit">Inscrever</button>
         </form>
         <p id="mensagem"></p>
     </section>
 
-    <section>
+    <section class="participantes">
         <h2>Participantes Inscritos</h2>
         <p>Total: <span id="total-participantes">0</span></p>
         <ul id="lista-participantes">
