@@ -50,9 +50,9 @@ formulario.addEventListener("submit", function(event){
     mostrarParticipantes();
     
     formulario.reset();
-
-    
-
+    setTimeout(function(){
+        mensagem.innerText = "";
+    }, 10000) // 10 segundos;
 })
 
 function mostrarParticipantes(){
