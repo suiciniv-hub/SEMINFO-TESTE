@@ -10,26 +10,44 @@
     <header>
         <h1>Seminfo 2.0</h1>
         <p>Semana de informatica 2026</p>
+
+        <nav>
+                <b><a href="javascript:mostrarInscricao()">Inscrição</a> 
+                <a href="javascript:mostrarParticipantes()">Participantes</a></b>
+        </nav>
+
     </header>
     <main>
-        <section class="inscricao">
+        <section class="inscricao" id="inscricao">
         <form id="form-inscricao">
             <h2>Inscrição de Participantes</h2>
             <br>
-            <label for="nome">Nome do participante: </label>
-            <input type="text" id="nome" name="nome">
+            <label for="nome">Nome do participante </label>
+            <input type="text" id="nome" required>
+
+            <label for="email">Email do participante </label>
+            <input type="email" id="email" required>
+
+            <label for="curso">Curso</label>
+            <select id="curso" required>
+                <option value="" hidden></option>
+                <option value="SI"> Sistemas de Informação</option>
+                <option value="GTI"> Gestão de TI</option>
+                <option value="TADS"> Tecnologia em Análise e Desenvolvimento de Sistemas</option>
+            </select>
+
             <br>
             <button type="submit">Inscrever</button>
         </form>
         <p id="mensagem"></p>
     </section>
 
-    <section class="participantes">
+    <section class="participantes" id="participante">
         <h2>Participantes Inscritos</h2>
         <p>Total: <span id="total-participantes">0</span></p>
-        <ul id="lista-participantes">
+        <ol id="lista-participantes">
             
-        </ul>
+        </ol>
     </section>
     </main>
     <script src="../js/script.js"></script>
