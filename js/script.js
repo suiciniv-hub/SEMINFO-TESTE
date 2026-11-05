@@ -83,36 +83,50 @@ const formulario = document.getElementById("form-inscricao"); // variavel q rece
 const campoNome = document.getElementById("nome");
 const campoEmail = document.getElementById("email");
 const campoCurso = document.getElementById("curso");
+const campoIdade = document.getElementById("idade");
+const campoMatricula = document.getElementById("matricula");
 
 const mensagem = document.getElementById("mensagem"); //
 
-const lista = document.getElementById("lista-participantes"); // armazena as informações da lista
 
 const total = document.getElementById("total-participantes"); // manipulará o elemento q imprime total
+const tabelaParticipantes = document.getElementById("tabela-participantes");
 
 formulario.addEventListener("submit", function(event){
     event.preventDefault(); 
 
     const nome = campoNome.value.trim();
+    const idade = Number(campoIdade.value);
+    const matricula = campoMatricula.value.trim();
     const email = campoEmail.value.trim();
     const curso = campoCurso.value;
 
-    if(nome === '' || email === '' || curso === ''){
+
+    if(nome === '' || email === ''|| curso === '' || !Number.isInteger(idade) || idade < 1 || idade > 120  || matricula === ""){
         mensagem.innerText = "Faltando informações.";
         mensagem.style.color = 'red';
-    }else {
-    mensagem.innerText = "Inscrição Realizada com Sucesso!"
-    mensagem.style.color = "green";
+        return;
     }
-    
+
+    console.log(verificarMatricula(matricula));
+
+    if(verificarMatricula(matricula)){
+        mensagem.innerText = "Essa matrícula já foi cadastrada";
+        mensagem.style.color = 'red';
+    }
+
     const participante = {
         nome: nome,
+        idade: idade,
+        matricula: matricula,
         email: email,
         curso: curso
     };
 
     participantes.push(participante);
 
+    mensagem.innerText = "Inscrição Realizada com Sucesso!"
+    mensagem.style.color = "green";
     formulario.reset();
     setTimeout(function(){
         mensagem.innerText = "";
@@ -128,15 +142,25 @@ function mostrarInscricao(){
 }
 
 function mostrarParticipantes(){
-        lista.innerHTML = "";
+    tabelaParticipantes.innerHTML = "";
         participantes.forEach(function(participante) {
-            const item = document.createElement("li");
-            item.innerText =
-            participante.nome + " - " + 
-            participante.email + " - " +
+            
+            const linha = document.createElement("tr");
+            const dados = [
+            participante.nome,
+            participante.idade,
+            participante.matricula,
+            participante.email,
             participante.curso
+            ];
 
-            lista.appendChild(item);
+            dados.forEach(function(dado){
+                const coluna = document.createElement('td');
+                coluna.innerText = dado;
+                linha.appendChild(coluna);
+            })
+
+            tabelaParticipantes.appendChild(linha);
         });
 
         total.innerText = participantes.length;
@@ -147,3 +171,8 @@ function mostrarParticipantes(){
         let participante = document.getElementById("participante");
         participante.style.display = 'block';
     }
+
+function verificarMatricula(matricula){
+
+     return false;
+}
