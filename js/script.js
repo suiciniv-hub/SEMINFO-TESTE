@@ -90,7 +90,7 @@ const mensagem = document.getElementById("mensagem"); //
 
 
 const total = document.getElementById("total-participantes"); // manipulará o elemento q imprime total
-const tabelaParticipantes = document.getElementById("tabela-participantes");
+const tabelaParticipantes = document.getElementById("corpo-tabela");
 
 formulario.addEventListener("submit", function(event){
     event.preventDefault(); 
